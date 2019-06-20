@@ -6,9 +6,9 @@ del /s /q RedCorners.Components.DeviceContacts.iOS\bin
 del /s /q RedCorners.Components.DeviceContacts.iOS\obj
 del /s /q RedCorners.Components.DeviceContacts.iOS\RedCorners.Components.DeviceContacts.iOS.csproj.user
 
-del /s /q RedCorners.ContactsDemo\RedCorners.ContactsDemo.Android\bin
-del /s /q RedCorners.ContactsDemo\RedCorners.ContactsDemo.Android\obj
-del /s /q RedCorners.ContactsDemo\RedCorners.ContactsDemo.Android\RedCorners.ContactsDemo.Android.csproj.user
+del /s /q RedCorners.ContactsDemo.Android\bin
+del /s /q RedCorners.ContactsDemo.Android\obj
+del /s /q RedCorners.ContactsDemo.Android\RedCorners.ContactsDemo.Android.csproj.user
 
 del /s /q RedCorners.ContactsDemo\RedCorners.ContactsDemo.iOS\bin
 del /s /q RedCorners.ContactsDemo\RedCorners.ContactsDemo.iOS\obj

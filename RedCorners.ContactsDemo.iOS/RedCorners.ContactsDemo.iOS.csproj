@@ -134,7 +134,7 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\RedCorners.Components.DeviceContacts.iOS\RedCorners.Components.DeviceContacts.iOS.csproj">
+    <ProjectReference Include="..\RedCorners.Components.DeviceContacts.iOS\RedCorners.Components.DeviceContacts.iOS.csproj">
       <Project>{e81e8cfb-0d9d-43ab-be39-79f19b2b8c41}</Project>
       <Name>RedCorners.Components.DeviceContacts.iOS</Name>
       <IsAppExtension>false</IsAppExtension>

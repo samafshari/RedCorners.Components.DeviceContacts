@@ -9,7 +9,7 @@ using System.Reflection;
 
 namespace RedCorners.Components
 {
-    public class DeviceContacts
+    public class DeviceContacts : IDeviceContacts
     {
         public IEnumerable<CNContact> GetAllRaw()
         {

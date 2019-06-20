@@ -9,6 +9,7 @@ namespace RedCorners.Components
         public string Birthday { get; set; }
         public string DepartmentName { get; set; }
         public string[] EmailAddresses { get; set; }
+        public string Name { get; set; }
         public string FamilyName { get; set; }
         public string GivenName { get; set; }
         public string Identifier { get; set; }

@@ -16,7 +16,7 @@
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <AndroidUseLatestPlatformSdk>false</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v9.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
     <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
     <NuGetPackageImportStamp>
@@ -104,7 +104,7 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\RedCorners.Forms.Contacts.Android\RedCorners.Forms.Contacts.Android.csproj">
+    <ProjectReference Include="..\RedCorners.Components.DeviceContacts.Android\RedCorners.Components.DeviceContacts.Android.csproj">
       <Project>{bb81ad64-7476-47fd-a6da-21820a14f74d}</Project>
       <Name>RedCorners.Forms.Contacts.Android</Name>
     </ProjectReference>
