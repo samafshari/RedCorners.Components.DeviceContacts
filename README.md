@@ -20,7 +20,7 @@
 ## Listing Contacts
 
 ```c#
-var provider = new DeviceContacts();
+var provider = new DeviceContacts(); //iOSMainActivity
 var contacts = contacts.GetAll();
 ```
 
