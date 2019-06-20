@@ -16,7 +16,7 @@ namespace RedCorners.ContactsDemo
         {
             var contacts = new DeviceContacts();
             var raw = contacts.GetAll().ToList();
-            Items = raw;
+            Items = raw.Where(x => x.PostalAddresses != null && x.PostalAddresses.Length > 0).ToList();
             UpdateProperties();
         });
     }

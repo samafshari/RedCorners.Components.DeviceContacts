@@ -1,1 +1,1 @@
-nuget pack RedCorners.Forms.nuspec
+nuget pack RedCorners.Components.DeviceContacts.nuspec

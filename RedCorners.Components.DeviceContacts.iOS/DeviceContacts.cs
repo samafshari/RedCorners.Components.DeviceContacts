@@ -104,7 +104,7 @@ namespace RedCorners.Components
                 Nickname = item.Nickname,
                 Note = item.Note,
                 OrganizationName = item.OrganizationName,
-                PhoneNumbers = item.PhoneNumbers?.Select(x => x.Value?.ToString()).ToArray(),
+                PhoneNumbers = item.PhoneNumbers?.Select(x => x.Value?.StringValue).ToArray(),
                 PostalAddresses = item.PostalAddresses?.Select(x => formatter.GetStringFromPostalAddress(x.Value)).ToArray(),
                 Tag = item
             };

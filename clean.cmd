@@ -1,15 +1,17 @@
-del /s /q RedCorners.Demo\RedCorners.Demo.Android\bin
-del /s /q RedCorners.Demo\RedCorners.Demo.Android\obj
-del /s /q RedCorners.Demo\RedCorners.Demo.Android\RedCorners.Demo.Android.csproj.user
+del /s /q RedCorners.Components.DeviceContacts.Android\bin
+del /s /q RedCorners.Components.DeviceContacts.Android\obj
+del /s /q RedCorners.Components.DeviceContacts.Android\RedCorners.Components.DeviceContacts.Android.csproj.user
 
-del /s /q RedCorners.Demo\RedCorners.Demo.iOS\bin
-del /s /q RedCorners.Demo\RedCorners.Demo.iOS\obj
-del /s /q RedCorners.Demo\RedCorners.Demo.iOS\RedCorners.Demo.iOS.csproj.user
+del /s /q RedCorners.Components.DeviceContacts.iOS\bin
+del /s /q RedCorners.Components.DeviceContacts.iOS\obj
+del /s /q RedCorners.Components.DeviceContacts.iOS\RedCorners.Components.DeviceContacts.iOS.csproj.user
+
+del /s /q RedCorners.ContactsDemo\RedCorners.ContactsDemo.Android\bin
+del /s /q RedCorners.ContactsDemo\RedCorners.ContactsDemo.Android\obj
+del /s /q RedCorners.ContactsDemo\RedCorners.ContactsDemo.Android\RedCorners.ContactsDemo.Android.csproj.user
+
+del /s /q RedCorners.ContactsDemo\RedCorners.ContactsDemo.iOS\bin
+del /s /q RedCorners.ContactsDemo\RedCorners.ContactsDemo.iOS\obj
+del /s /q RedCorners.ContactsDemo\RedCorners.ContactsDemo.iOS\RedCorners.ContactsDemo.iOS.csproj.user
 
 del /s /q .vs
-
-del /s /q RedCorners.Forms.Droid\bin
-del /s /q RedCorners.Forms.Droid\obj
-del /s /q RedCorners.Forms.iOS\bin
-del /s /q RedCorners.Forms.iOS\obj
-del /s /q RedCorners.Forms.iOS\RedCorners.Forms.iOS.csproj.user
