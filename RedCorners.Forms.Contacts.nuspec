@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>RedCorners.Forms.Contacts</id>
+    <version>4.11.0</version>
+    <title>RedCorners.Forms.Contacts</title>
+    <authors>Saeed Afshari and NeatCapital OÜ</authors>
+    <owners>NeatCapital OÜ</owners>
+    <projectUrl>https://github.com/saeedafshari/RedCorners.Forms.Contacts</projectUrl>
+    <iconUrl>http://ooze.redcorners.com/redcorners_forms_contacts_logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>RedCorners.Forms brings some neat utilities to your Xamarin.Forms projects.</description>
+    <releaseNotes>RedCorners.Forms brings some neat utilities to your Xamarin.Forms projects.</releaseNotes>
+    <copyright>Copyright 2019 NeatCapital OÜ</copyright>
+    <tags>Xamarin.Forms Contacts iOS Android Xamarin</tags>
+
+    <dependencies>
+      <group targetFramework="netstandard2.0">
+          <dependency id="Xamarin.Forms" version="4.0.0.425677" />
+      </group>
+	  
+	  <group targetFramework="MonoAndroid80">
+          <dependency id="Xamarin.Android.Support.v7.AppCompat" version="28.0.0.1" />
+          <dependency id="RedCorners.Forms" version="4.11.0" />
+      </group>
+
+      <group targetFramework="Xamarin.iOS10">
+          <dependency id="Xamarin.Android.Support.v7.AppCompat" version="28.0.0.1" />
+          <dependency id="RedCorners.Forms" version="4.11.0" />
+      </group>
+    </dependencies>
+    
+    <license type="file">license.txt</license>
+  </metadata>
+
+  <files>
+    <file src="license.txt" target="" />
+
+	<file 
+      src="RedCorners.Forms.Contacts.Droid\bin\Release\RedCorners.Forms.Contacts.dll" 
+      target="lib\MonoAndroid80\RedCorners.Forms.Contacts.dll" />
+	  
+    <file 
+      src="RedCorners.Forms.Contacts.iOS\bin\Release\RedCorners.Forms.Contacts.dll" 
+      target="lib\Xamarin.iOS10\RedCorners.Forms.Contacts.dll" />
+  </files>
+
+</package>
