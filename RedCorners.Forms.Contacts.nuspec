@@ -9,8 +9,8 @@
     <projectUrl>https://github.com/saeedafshari/RedCorners.Forms.Contacts</projectUrl>
     <iconUrl>http://ooze.redcorners.com/redcorners_forms_contacts_logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>RedCorners.Forms brings some neat utilities to your Xamarin.Forms projects.</description>
-    <releaseNotes>RedCorners.Forms brings some neat utilities to your Xamarin.Forms projects.</releaseNotes>
+    <description>Access Contacts on iOS and Android in Xamarin.Forms.</description>
+    <releaseNotes>Access Contacts on iOS and Android in Xamarin.Forms.</releaseNotes>
     <copyright>Copyright 2019 NeatCapital OÜ</copyright>
     <tags>Xamarin.Forms Contacts iOS Android Xamarin</tags>
 

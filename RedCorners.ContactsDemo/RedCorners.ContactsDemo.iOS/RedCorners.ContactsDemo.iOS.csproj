@@ -127,11 +127,14 @@
     <PackageReference Include="Xamarin.Forms" Version="4.0.0.425677" />
     <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\RedCorners.ContactsDemo\RedCorners.ContactsDemo.csproj">
-      <Project>{D6CDFF67-CD7F-45FD-A920-4CEA5AE0AFA4}</Project>
-      <Name>RedCorners.ContactsDemo</Name>
+    <ProjectReference Include="..\..\RedCorners.Forms.Contacts.iOS\RedCorners.Forms.Contacts.iOS.csproj">
+      <Project>{e81e8cfb-0d9d-43ab-be39-79f19b2b8c41}</Project>
+      <Name>RedCorners.Forms.Contacts.iOS</Name>
+      <IsAppExtension>false</IsAppExtension>
+      <IsWatchApp>false</IsWatchApp>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="..\RedCorners.ContactsDemo\RedCorners.ContactsDemo.projitems" Label="Shared" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>
