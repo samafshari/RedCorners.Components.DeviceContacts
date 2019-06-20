@@ -6,8 +6,9 @@
     <SharedGUID>b265f412-6f9d-40bf-8619-ac916786f49e</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>RedCorners.Forms</Import_RootNamespace>
+    <Import_RootNamespace>RedCorners.Components</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)DeviceContact.cs" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>RedCorners.Components.DeviceContacts</id>
+    <version>4.11.0</version>
+    <title>RedCorners.Components.DeviceContacts</title>
+    <authors>Saeed Afshari and NeatCapital OÜ</authors>
+    <owners>NeatCapital OÜ</owners>
+    <projectUrl>https://github.com/saeedafshari/RedCorners.Components.DeviceContacts</projectUrl>
+    <iconUrl>http://ooze.redcorners.com/redcorners_components_devicecontacts_logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Access device contacts on iOS and Android.</description>
+    <releaseNotes>Access device contacts on iOS and Android.</releaseNotes>
+    <copyright>Copyright 2019 NeatCapital OÜ</copyright>
+    <tags>Xamarin.Forms Contacts iOS Android Xamarin</tags>
+
+    <dependencies>
+	  <group targetFramework="MonoAndroid80">
+          <dependency id="Xamarin.Android.Support.v7.AppCompat" version="28.0.0.1" />
+      </group>
+
+      <group targetFramework="Xamarin.iOS10">
+      </group>
+    </dependencies>
+    
+    <license type="file">license.txt</license>
+  </metadata>
+
+  <files>
+    <file src="license.txt" target="" />
+
+	<file 
+      src="RedCorners.Components.DeviceContacts.Android\bin\Release\RedCorners.Components.DeviceContacts.Android.dll" 
+      target="lib\MonoAndroid80\RedCorners.Components.DeviceContacts.Android.dll" />
+	  
+    <file 
+      src="RedCorners.Components.DeviceContacts.iOS\bin\Release\RedCorners.Components.DeviceContacts.iOS.dll" 
+      target="lib\Xamarin.iOS10\RedCorners.Components.DeviceContacts.iOS.dll" />
+  </files>
+
+</package>

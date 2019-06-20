@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<rf:ContentPage2 KeepScreenOn="True"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:rf="clr-namespace:RedCorners.Forms;assembly=RedCorners.Forms"
+    xmlns:local="clr-namespace:RedCorners.ContactsDemo"
+    mc:Ignorable="d"
+    x:Class="RedCorners.ContactsDemo.MainPage">
+    <rf:ContentPage2.BindingContext>
+        <local:MainViewModel x:Name="vm" />
+    </rf:ContentPage2.BindingContext>
+    <rf:TitledContentView Title="Contacts" HasButton="False">
+        <rf:TitledContentView.ToolBar>
+            <StackLayout Orientation="Horizontal" VerticalOptions="Center"  BindingContext="{x:Reference vm}">
+                <Button Text="Fetch" Command="{Binding FetchCommand}" TextColor="White" />
+            </StackLayout>
+        </rf:TitledContentView.ToolBar>
+        
+        <Grid BindingContext="{x:Reference vm}">
+            <ListView
+                ItemsSource="{Binding Items}"
+                HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" Text="Birthday" />
+                                <Label Grid.Row="0" Grid.Column="0" Text="Birthday" />
+                                <Label Grid.Row="0" Grid.Column="0" Text="Birthday" />
+                                <Label Grid.Row="0" Grid.Column="0" Text="Birthday" />
+                                <Label Grid.Row="0" Grid.Column="0" Text="Birthday" />
+                                <Label Grid.Row="0" Grid.Column="0" Text="Birthday" />
+                                <Label Grid.Row="0" Grid.Column="0" Text="Birthday" />
+                                <Label Grid.Row="0" Grid.Column="0" Text="Birthday" />
+                                <Label Grid.Row="0" Grid.Column="0" Text="Birthday" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </rf:TitledContentView>
+</rf:ContentPage2>
