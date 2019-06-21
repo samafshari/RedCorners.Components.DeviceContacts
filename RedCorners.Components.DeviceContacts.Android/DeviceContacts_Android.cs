@@ -20,7 +20,7 @@ using Android.Widget;
 
 namespace RedCorners.Components
 {
-    public class DeviceContacts : IDeviceContacts
+    public partial class DeviceContacts : IDeviceContacts
     {
         static Activity activity;
         const int RequestCode = 51;
@@ -55,6 +55,7 @@ namespace RedCorners.Components
                 }).ToList();
             });
 
+            Cache(results);
             return results;
         }
 
@@ -76,9 +77,11 @@ namespace RedCorners.Components
 
         AndroidContact GetContact(ICursor cursor, Context context)
         {
+            var displayName = GetString(cursor, ContactsContract.Contacts.InterfaceConsts.DisplayName);
+            if (string.IsNullOrWhiteSpace(displayName)) return null;
+
             var contactId = GetString(cursor, ContactsContract.Contacts.InterfaceConsts.Id);
             //            var hasNumbers = GetString(cursor, ContactsContract.Contacts.InterfaceConsts.HasPhoneNumber) == "1";
-
             var numbers = GetNumbers(context, contactId);
             //.ToList();
             var emails = GetEmails(context, contactId);
@@ -86,7 +89,7 @@ namespace RedCorners.Components
 
             var contact = new AndroidContact
             {
-                DisplayName = GetString(cursor, ContactsContract.Contacts.InterfaceConsts.DisplayName),
+                DisplayName = displayName,
                 PhotoUri = GetString(cursor, ContactsContract.Contacts.InterfaceConsts.PhotoUri),
                 PhotoUriThumbnail = GetString(cursor, ContactsContract.Contacts.InterfaceConsts.PhotoThumbnailUri),
                 Emails = emails.ToArray(),

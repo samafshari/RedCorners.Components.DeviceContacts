@@ -8,5 +8,6 @@ namespace RedCorners.Components
     public interface IDeviceContacts
     {
         Task<List<DeviceContact>> GetAllAsync();
+        Task<List<DeviceContact>> GetAllAsync(bool preferCached);
     }
 }

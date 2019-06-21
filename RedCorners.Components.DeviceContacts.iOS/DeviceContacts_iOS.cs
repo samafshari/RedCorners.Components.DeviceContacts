@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace RedCorners.Components
 {
-    public class DeviceContacts : IDeviceContacts
+    public partial class DeviceContacts : IDeviceContacts
     {
         public IEnumerable<CNContact> GetAllRaw()
         {
@@ -83,7 +83,9 @@ namespace RedCorners.Components
 
         public Task<List<DeviceContact>> GetAllAsync()
         {
-            return Task.FromResult(GetAllRaw().Select(x => CNContactToDeviceContact(x)).ToList());
+            var results = GetAllRaw().Select(x => CNContactToDeviceContact(x)).ToList();
+            Cache(results);
+            return Task.FromResult(results);
         }
 
         static readonly CNPostalAddressFormatter formatter = new CNPostalAddressFormatter();

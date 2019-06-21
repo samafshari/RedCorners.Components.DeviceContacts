@@ -10,6 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)DeviceContact.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DeviceContacts.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IDeviceContacts.cs" />
   </ItemGroup>
 </Project>
