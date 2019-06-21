@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Threading.Tasks;
+using Android;
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.Database;
 using Android.OS;
 using Android.Provider;
 using Android.Runtime;
+using Android.Support.V4.App;
+using Android.Support.V4.Content;
 using Android.Views;
 using Android.Widget;
 
@@ -18,14 +22,40 @@ namespace RedCorners.Components
 {
     public class DeviceContacts : IDeviceContacts
     {
-        public List<DeviceContact> GetAll()
+        static Activity activity;
+        const int RequestCode = 51;
+
+        public static void Init(Activity activity)
         {
-            return GetAllRaw().Select(x => new DeviceContact
+            DeviceContacts.activity = activity;
+        }
+
+        public async Task<List<DeviceContact>> GetAllAsync()
+        {
+            if (!CheckPermission())
             {
-                Name = x.DisplayName,
-                PhoneNumbers = x.Numbers,
-                EmailAddresses = x.Emails
-            }).ToList();
+                if (activity == null)
+                    throw new Exception("Activity is not set. Please initialize this module by calling DeviceContacts.Init(activity)");
+                RequestPermission();
+                while (requestingPermission)
+                    await Task.Delay(50);
+                if (!CheckPermission())
+                    throw new AccessViolationException("Android: Permission Denied");
+            }
+
+            List<DeviceContact> results = null;
+            await Task.Run(() =>
+            {
+                var raw = GetAllRaw().ToList();
+                results = raw.Select(x => new DeviceContact
+                {
+                    Name = x.DisplayName,
+                    PhoneNumbers = x.Numbers,
+                    EmailAddresses = x.Emails
+                }).ToList();
+            });
+
+            return results;
         }
 
         public IEnumerable<AndroidContact> GetAllRaw()
@@ -109,6 +139,30 @@ namespace RedCorners.Components
         private static string GetString(ICursor cursor, string key)
         {
             return cursor.GetString(cursor.GetColumnIndex(key));
+        }
+
+        public bool CheckPermission()
+        {
+            var check = ContextCompat.CheckSelfPermission(Application.Context, Manifest.Permission.ReadContacts);
+            if (check == Android.Content.PM.Permission.Granted)
+                return true;
+
+            return false;
+        }
+
+        static volatile bool requestingPermission = false;
+        public static void RequestPermission()
+        {
+            requestingPermission = true;
+            ActivityCompat.RequestPermissions(activity, new[] { Manifest.Permission.ReadContacts }, RequestCode);
+        }
+
+        public static void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        {
+            if (!permissions.Contains(Manifest.Permission.ReadContacts))
+                return;
+
+            requestingPermission = false;
         }
     }
 }

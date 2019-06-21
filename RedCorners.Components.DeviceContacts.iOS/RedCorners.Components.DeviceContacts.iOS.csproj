@@ -41,7 +41,7 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DeviceContacts.cs" />
+    <Compile Include="DeviceContacts_iOS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="..\RedCorners.Components.DeviceContacts.Shared\RedCorners.Components.DeviceContacts.Shared.projitems" Label="Shared" />

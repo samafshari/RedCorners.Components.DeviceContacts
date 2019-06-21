@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace RedCorners.Components
 {
     public interface IDeviceContacts
     {
-        List<DeviceContact> GetAll();
+        Task<List<DeviceContact>> GetAllAsync();
     }
 }

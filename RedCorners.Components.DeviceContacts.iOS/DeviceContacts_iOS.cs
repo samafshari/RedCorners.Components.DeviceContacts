@@ -6,6 +6,7 @@ using Contacts;
 using Foundation;
 using UIKit;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace RedCorners.Components
 {
@@ -80,9 +81,9 @@ namespace RedCorners.Components
             return results;
         }
 
-        public List<DeviceContact> GetAll()
+        public Task<List<DeviceContact>> GetAllAsync()
         {
-            return GetAllRaw().Select(x => CNContactToDeviceContact(x)).ToList();
+            return Task.FromResult(GetAllRaw().Select(x => CNContactToDeviceContact(x)).ToList());
         }
 
         static readonly CNPostalAddressFormatter formatter = new CNPostalAddressFormatter();

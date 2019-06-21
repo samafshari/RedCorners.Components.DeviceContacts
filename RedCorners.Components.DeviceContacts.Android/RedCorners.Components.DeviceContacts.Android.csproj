@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AndroidContact.cs" />
-    <Compile Include="DeviceContacts.cs" />
+    <Compile Include="DeviceContacts_Android.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
