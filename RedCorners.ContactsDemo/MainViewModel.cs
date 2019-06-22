@@ -20,13 +20,18 @@ namespace RedCorners.ContactsDemo
         public Command FetchCommand => new Command(async () =>
         {
             var contacts = new DeviceContacts();
+#if __ANDROID__
+            contacts.QueryEmails = false;
+            contacts.QueryPhoneNumbers = false;
+#endif
             Status = Models.TaskStatuses.Busy;
             UpdateProperties();
             List<DeviceContact> raw = null;
             try
             {
                 raw = await contacts.GetAllAsync();
-                Items = raw.Where(x => x.PostalAddresses != null && x.PostalAddresses.Length > 0).ToList();
+                var items = raw.Where(x => x.PostalAddresses != null && x.PostalAddresses.Length > 0).ToList();
+                Items = items;
             }
             catch (Exception ex)
             {

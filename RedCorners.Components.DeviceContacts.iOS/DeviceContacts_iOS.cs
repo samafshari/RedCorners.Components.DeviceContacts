@@ -94,21 +94,22 @@ namespace RedCorners.Components
         {
             return new DeviceContact
             {
-                Birthday = item.Birthday?.ToString(),
-                DepartmentName = item.DepartmentName,
                 EmailAddresses = item.EmailAddresses?.Select(x => x.Value?.ToString()).ToArray(),
-                FamilyName = item.FamilyName,
-                GivenName = item.GivenName,
-                Identifier = item.Identifier,
-                JobTitle = item.JobTitle,
-                MiddleName = item.MiddleName,
-                NamePrefix = item.NamePrefix,
-                NameSuffix = item.NameSuffix,
-                Nickname = item.Nickname,
-                Note = item.Note,
-                OrganizationName = item.OrganizationName,
                 PhoneNumbers = item.PhoneNumbers?.Select(x => x.Value?.StringValue).ToArray(),
                 PostalAddresses = item.PostalAddresses?.Select(x => formatter.GetStringFromPostalAddress(x.Value)).ToArray(),
+                Name = $"{item.NamePrefix} {item.GivenName} {item.MiddleName} {item.FamilyName} {item.NameSuffix}".Trim(),
+                //Birthday = item.Birthday?.ToString(),
+                //DepartmentName = item.DepartmentName,
+                //FamilyName = item.FamilyName,
+                //GivenName = item.GivenName,
+                //Identifier = item.Identifier,
+                //JobTitle = item.JobTitle,
+                //MiddleName = item.MiddleName,
+                //NamePrefix = item.NamePrefix,
+                //NameSuffix = item.NameSuffix,
+                //Nickname = item.Nickname,
+                //Note = item.Note,
+                //OrganizationName = item.OrganizationName,
                 Tag = item
             };
         }

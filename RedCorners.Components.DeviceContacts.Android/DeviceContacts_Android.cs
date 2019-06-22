@@ -30,6 +30,15 @@ namespace RedCorners.Components
             DeviceContacts.activity = activity;
         }
 
+        public bool QueryEmails { get; set; } = true;
+        public bool QueryPhoneNumbers { get; set; } = true;
+        public bool QueryAddresses { get; set; } = true;
+
+        public DeviceContacts()
+        {
+
+        }
+
         public async Task<List<DeviceContact>> GetAllAsync()
         {
             if (!CheckPermission())
@@ -51,7 +60,9 @@ namespace RedCorners.Components
                 {
                     Name = x.DisplayName,
                     PhoneNumbers = x.Numbers,
-                    EmailAddresses = x.Emails
+                    EmailAddresses = x.Emails,
+                    PostalAddresses = x.Addresses.Select(y => y.FormattedAddress).ToArray(),
+                    Tag = x
                 }).ToList();
             });
 
@@ -81,19 +92,18 @@ namespace RedCorners.Components
             if (string.IsNullOrWhiteSpace(displayName)) return null;
 
             var contactId = GetString(cursor, ContactsContract.Contacts.InterfaceConsts.Id);
-            //            var hasNumbers = GetString(cursor, ContactsContract.Contacts.InterfaceConsts.HasPhoneNumber) == "1";
-            var numbers = GetNumbers(context, contactId);
-            //.ToList();
-            var emails = GetEmails(context, contactId);
-            //.ToList();
+            var numbers = QueryPhoneNumbers ? GetNumbers(context, contactId) : null;
+            var emails = QueryEmails ? GetEmails(context, contactId) : null;
+            var addresses = QueryAddresses ? GetAddresses(context, contactId) : null;
 
             var contact = new AndroidContact
             {
                 DisplayName = displayName,
                 PhotoUri = GetString(cursor, ContactsContract.Contacts.InterfaceConsts.PhotoUri),
                 PhotoUriThumbnail = GetString(cursor, ContactsContract.Contacts.InterfaceConsts.PhotoThumbnailUri),
-                Emails = emails.ToArray(),
-                Numbers = numbers.ToArray(),
+                Emails = emails?.ToArray(),
+                Numbers = numbers?.ToArray(),
+                Addresses = addresses?.ToArray()
             };
 
             return contact;
@@ -128,6 +138,42 @@ namespace RedCorners.Components
             return ReadCursorItems(cursor, key);
         }
 
+        static List<AndroidPostalAddress> GetAddresses(Context ctx, string contactId)
+        {
+            var keys = new[]
+            {
+                ContactsContract.CommonDataKinds.StructuredPostal.City,
+                ContactsContract.CommonDataKinds.StructuredPostal.Street,
+                ContactsContract.CommonDataKinds.StructuredPostal.Region,
+                ContactsContract.CommonDataKinds.StructuredPostal.Pobox,
+                ContactsContract.CommonDataKinds.StructuredPostal.Neighborhood,
+                ContactsContract.CommonDataKinds.StructuredPostal.FormattedAddress,
+                ContactsContract.CommonDataKinds.StructuredPostal.Postcode,
+                ContactsContract.CommonDataKinds.StructuredPostal.Country
+            };
+
+            var cursor = ctx.ApplicationContext.ContentResolver.Query(
+                ContactsContract.CommonDataKinds.StructuredPostal.ContentUri,
+                null,
+                ContactsContract.CommonDataKinds.StructuredPostal.InterfaceConsts.ContactId + " = ?",
+                new[] { contactId },
+                null);
+
+            return ReadCursorItems(cursor, keys)
+                .Select(x => new AndroidPostalAddress
+                {
+                    City = x[ContactsContract.CommonDataKinds.StructuredPostal.City],
+                    Street = x[ContactsContract.CommonDataKinds.StructuredPostal.Street],
+                    Region = x[ContactsContract.CommonDataKinds.StructuredPostal.Region],
+                    Pobox = x[ContactsContract.CommonDataKinds.StructuredPostal.Pobox],
+                    Neighborhood = x[ContactsContract.CommonDataKinds.StructuredPostal.Neighborhood],
+                    FormattedAddress = x[ContactsContract.CommonDataKinds.StructuredPostal.FormattedAddress],
+                    Postcode = x[ContactsContract.CommonDataKinds.StructuredPostal.Postcode],
+                    Country = x[ContactsContract.CommonDataKinds.StructuredPostal.Country]
+                })
+                .ToList();
+        }
+
         private static IEnumerable<string> ReadCursorItems(ICursor cursor, string key)
         {
             while (cursor.MoveToNext())
@@ -137,6 +183,24 @@ namespace RedCorners.Components
             }
 
             cursor.Close();
+        }
+
+        private static List<Dictionary<string, string>> ReadCursorItems(ICursor cursor, string[] keys)
+        {
+            var results = new List<Dictionary<string, string>>();
+
+            while (cursor.MoveToNext())
+            {
+                var dic = new Dictionary<string, string>();
+                foreach (var key in keys)
+                {
+                    dic[key] = GetString(cursor, key);
+                }
+                results.Add(dic);
+            }
+
+            cursor.Close();
+            return results;
         }
 
         private static string GetString(ICursor cursor, string key)
