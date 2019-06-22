@@ -1,3 +1,7 @@
+NuGet: [https://www.nuget.org/packages/RedCorners.Components.DeviceContacts](https://www.nuget.org/packages/RedCorners.Components.DeviceContacts)
+
+GitHub: [https://github.com/saeedafshari/RedCorners.Components.DeviceContacts](https://github.com/saeedafshari/RedCorners.Components.DeviceContacts)
+
 ## Setting Up / Permissions
 
 ### iOS
