@@ -24,4 +24,12 @@ namespace RedCorners.Components
         //public string OrganizationName { get; set; }
         public object Tag { get; set; }
     }
+
+    public class StorableDeviceContact
+    {
+        public string Name { get; set; }
+        public string[] EmailAddresses { get; set; }
+        public string[] PhoneNumbers { get; set; }
+        public string[] PostalAddresses { get; set; }
+    }
 }
