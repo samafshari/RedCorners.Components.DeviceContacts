@@ -32,7 +32,7 @@ namespace RedCorners.Components
                 CNContactKey.NameSuffix,
                 CNContactKey.Nickname,
                 CNContactKey.NonGregorianBirthday,
-                CNContactKey.Note,
+                //CNContactKey.Note,
                 CNContactKey.OrganizationName,
                 CNContactKey.PhoneNumbers,
                 CNContactKey.PhoneticFamilyName,
@@ -71,8 +71,9 @@ namespace RedCorners.Components
                             results.AddRange(containerResults);
                         }
                     }
-                    catch
+                    catch (Exception ex)
                     {
+                        Console.WriteLine($"DeviceContacts_iOS Error: {ex}");
                         // ignore missed contacts from errors
                     }
                 }
@@ -84,6 +85,7 @@ namespace RedCorners.Components
         public Task<List<DeviceContact>> GetAllAsync()
         {
             var results = GetAllRaw().Select(x => CNContactToDeviceContact(x)).ToList();
+            Console.WriteLine($"Results Count: {results.Count}");
             Cache(results);
             return Task.FromResult(results);
         }
