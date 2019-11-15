@@ -26,5 +26,12 @@ namespace RedCorners.Components
 
             return await GetAllAsync();
         }
+
+        internal static string FixSpaces(string original)
+        {
+            if (string.IsNullOrWhiteSpace(original)) return original;
+            var split = original.Trim().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+            return string.Join(" ", split);
+        }
     }
 }

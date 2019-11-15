@@ -2,17 +2,17 @@
 <package >
   <metadata>
     <id>RedCorners.Components.DeviceContacts</id>
-    <version>5.3.0</version>
+    <version>5.4.0</version>
     <title>RedCorners.Components.DeviceContacts</title>
-    <authors>Saeed Afshari and NeatCapital OÜ</authors>
+    <authors>NeatCapital OÜ</authors>
     <owners>NeatCapital OÜ</owners>
     <projectUrl>https://github.com/saeedafshari/RedCorners.Components.DeviceContacts</projectUrl>
-    <iconUrl>http://ooze.redcorners.com/redcorners_components_devicecontacts_logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Access device contacts on iOS and Android.</description>
     <releaseNotes>Access device contacts on iOS and Android.</releaseNotes>
     <copyright>Copyright 2019 NeatCapital OÜ</copyright>
     <tags>Xamarin.Forms Contacts iOS Android Xamarin</tags>
+    <icon>redcorners_components_devicecontacts_logo.png</icon>
 
     <dependencies>
 	  <group targetFramework="MonoAndroid80">
@@ -28,6 +28,7 @@
 
   <files>
     <file src="license.txt" target="" />
+    <file src="redcorners_components_devicecontacts_logo.png" target="" />
 
 	<file 
       src="RedCorners.Components.DeviceContacts.Android\bin\Release\RedCorners.Components.DeviceContacts.Android.dll" 

@@ -1,1 +1,1 @@
-nuget pack RedCorners.Components.DeviceContacts.nuspec
+c:\windows\nuget pack RedCorners.Components.DeviceContacts.nuspec

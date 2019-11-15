@@ -58,7 +58,7 @@ namespace RedCorners.Components
                 var raw = GetAllRaw().ToList();
                 results = raw.Select(x => new DeviceContact
                 {
-                    Name = x.DisplayName,
+                    Name = FixSpaces(x.DisplayName),
                     PhoneNumbers = x.Numbers,
                     EmailAddresses = x.Emails,
                     PostalAddresses = x.Addresses.Select(y => y.FormattedAddress).ToArray(),

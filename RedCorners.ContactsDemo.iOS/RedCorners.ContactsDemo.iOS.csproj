@@ -137,6 +137,8 @@
     <ProjectReference Include="..\RedCorners.Components.DeviceContacts.iOS\RedCorners.Components.DeviceContacts.iOS.csproj">
       <Project>{E81E8CFB-0D9D-43AB-BE39-79F19B2B8C41}</Project>
       <Name>RedCorners.Components.DeviceContacts.iOS</Name>
+      <IsAppExtension>false</IsAppExtension>
+      <IsWatchApp>false</IsWatchApp>
     </ProjectReference>
   </ItemGroup>
   <Import Project="..\RedCorners.ContactsDemo\RedCorners.ContactsDemo.projitems" Label="Shared" />

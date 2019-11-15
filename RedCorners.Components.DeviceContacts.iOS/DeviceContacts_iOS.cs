@@ -99,7 +99,7 @@ namespace RedCorners.Components
                 EmailAddresses = item.EmailAddresses?.Select(x => x.Value?.ToString()).ToArray(),
                 PhoneNumbers = item.PhoneNumbers?.Select(x => x.Value?.StringValue).ToArray(),
                 PostalAddresses = item.PostalAddresses?.Select(x => formatter.GetStringFromPostalAddress(x.Value)).ToArray(),
-                Name = $"{item.NamePrefix} {item.GivenName} {item.MiddleName} {item.FamilyName} {item.NameSuffix}".Trim(),
+                Name = FixSpaces($"{item.NamePrefix} {item.GivenName} {item.MiddleName} {item.FamilyName} {item.NameSuffix}".Trim()),
                 //Birthday = item.Birthday?.ToString(),
                 //DepartmentName = item.DepartmentName,
                 //FamilyName = item.FamilyName,
