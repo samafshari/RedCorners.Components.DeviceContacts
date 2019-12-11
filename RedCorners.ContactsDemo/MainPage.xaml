@@ -13,13 +13,14 @@
     </rf:ContentPage2.BindingContext>
     <rf:TitledContentView Title="Contacts" HasButton="False">
         <rf:TitledContentView.ToolBar>
-            <Grid VerticalOptions="Center" BindingContext="{x:Reference vm}">
-                <Button 
+            <Grid VerticalOptions="Center">
+                <rf:Button2 
                     IsVisible="{Binding IsFinished}" 
                     Command="{Binding FetchCommand}" 
                     BackgroundColor="Transparent" 
                     Text="Fetch" 
                     TextColor="White" 
+                    TextAlignment="End"
                     VerticalOptions="Center" />
                 <ActivityIndicator
                     IsVisible="{Binding IsBusy}"
@@ -32,7 +33,7 @@
             </Grid>
         </rf:TitledContentView.ToolBar>
         
-        <Grid BindingContext="{x:Reference vm}">
+        <Grid>
             <ListView
                 ItemsSource="{Binding Items}"
                 HasUnevenRows="True">

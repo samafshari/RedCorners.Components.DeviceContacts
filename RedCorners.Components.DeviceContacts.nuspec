@@ -2,11 +2,11 @@
 <package >
   <metadata>
     <id>RedCorners.Components.DeviceContacts</id>
-    <version>5.4.0</version>
+    <version>5.5.0</version>
     <title>RedCorners.Components.DeviceContacts</title>
     <authors>NeatCapital OÜ</authors>
     <owners>NeatCapital OÜ</owners>
-    <projectUrl>https://github.com/saeedafshari/RedCorners.Components.DeviceContacts</projectUrl>
+    <projectUrl>http://redcorners.com/devicecontacts/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>Access device contacts on iOS and Android.</description>
     <releaseNotes>Access device contacts on iOS and Android.</releaseNotes>
@@ -16,7 +16,7 @@
 
     <dependencies>
 	  <group targetFramework="MonoAndroid80">
-          <dependency id="Xamarin.Android.Support.v7.AppCompat" version="28.0.0.1" />
+          <dependency id="Xamarin.Android.Support.v7.AppCompat" version="28.0.0.3" />
       </group>
 
       <group targetFramework="Xamarin.iOS10">
